@@ -2,32 +2,32 @@ import { bizarreStringIncrementer } from './bizarreStringIncrementer';
 
 describe('bizarreStringIncrementer', () => {
   it('bizarreStringIncrementer adds the number 1 if string does not end in a number', () => {
-    bizarreStringIncrementer('foo') == 'foo1';
+    expect(bizarreStringIncrementer('foo')).toEqual('foo1');
   });
 
   it('bizarreStringIncrementer increments by 1 the number if the string ends with a number', () => {
-    bizarreStringIncrementer('foo23') == 'foo24';
+    expect(bizarreStringIncrementer('foo23')).toEqual('foo24');
   });
 
   it('bizarreStringIncrementer considers leading zeros when incrementing', () => {
-    bizarreStringIncrementer('foo0041') == 'foo0042';
+    expect(bizarreStringIncrementer('foo0041')).toEqual('foo0042');
   });
 
   it('bizarreStringIncrementer increments by one even when number of digits increase', () => {
-    bizarreStringIncrementer('foo9') == 'foo10';
+    expect(bizarreStringIncrementer('foo9')).toEqual('foo10');
   });
 
   it('bizarreStringIncrementer fills leading zeros', () => {
-    bizarreStringIncrementer('foo099') == 'foo100';
+    expect(bizarreStringIncrementer('foo099')).toEqual('foo100');
   });
 
   it('bizarreStringIncrementer looks at only the last digits', () => {
-    bizarreStringIncrementer('f99oo') == 'f99oo1';
-    bizarreStringIncrementer('f99oo23') == 'f99oo24';
-    bizarreStringIncrementer('f99oo099') == 'f99oo100';
+    expect(bizarreStringIncrementer('f99oo')).toBe('f99oo1');
+    expect(bizarreStringIncrementer('f99oo23')).toBe('f99oo24');
+    expect(bizarreStringIncrementer('f99oo099')).toBe('f99oo100');
   });
 
   it('should always pad the only the leading zeroes', () => {
-    bizarreStringIncrementer('f99oo0099') == 'f99oo0100';
+    expect(bizarreStringIncrementer('f99oo0099')).toBe('f99oo0100');
   });
 });
